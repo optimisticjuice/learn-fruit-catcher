@@ -1,0 +1,11 @@
+/* styled the time to be absolute and at the top left */
+.time{
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    color: black;
+    background-color: rgba(64, 0, 66, 0.37);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+  }

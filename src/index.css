@@ -1,0 +1,4 @@
+/* set the font size to 62.5% of the parent perfect for rem unit 1rem = 10px */
+html{
+    font-size: 62.5%;
+  }
