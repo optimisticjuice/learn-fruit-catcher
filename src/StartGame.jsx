@@ -1,7 +1,7 @@
 import './StartGame.scss';
 export const gameTime = 25; // gameTime in seconds
 // export the StartGame component
-export default function StartGame({startTimer}) {
+export default function StartGame({startTimer,startMusic}) {
     return (
         // return the StartGame component
         <div className="start-game">
@@ -9,6 +9,7 @@ export default function StartGame({startTimer}) {
             {/* button to start the game */}
         <button onClick={() => {
             startTimer(); // This will start the timer by flipping the gameStarted state to true creating a casscade of events
+            startMusic(); // This will start the music
         }}>Start Game</button>  
         </div>
     )

@@ -2,7 +2,7 @@ import GameTimer from "./GameTimer";
 import {gameTime} from "./StartGame";
 import "./RestartGame.scss";
 
-export default function RestartGame({score,setScore, resetGame,resetFruits}) {
+export default function RestartGame({score,setScore, resetGame,resetFruits,startMusic}) {
     const {startTimer} = GameTimer(gameTime);
 
     const RestartGame = () => {
@@ -10,6 +10,7 @@ export default function RestartGame({score,setScore, resetGame,resetFruits}) {
         startTimer();           
         resetGame();
         resetFruits();
+        startMusic();
     }
     
     return (
