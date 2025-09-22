@@ -5,9 +5,9 @@ export default function Basket({x,width,height}) {
     return (
         <img src={basketImg} alt="basket" className="basket" 
         style={{
-            '--x-position':x + "px",      
-            '--width': width + "px",       
-            '--height': height + "px"      
+            '--x-position': `${x}px`,
+            '--width': `${width}px`,
+            '--height': `${height}px`      
         }}
             
              />

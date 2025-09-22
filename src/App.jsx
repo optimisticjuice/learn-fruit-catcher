@@ -4,8 +4,11 @@ import GameTimer from "./GameTimer.jsx";
 import Basket from "./Basket.jsx";
 import { useState } from "react";
 import RestartGame from "./RestartGame.jsx";
+import MoveBasket from "./MoveBasket.jsx";
 
 function App() {
+  // Basket Width:
+   const basketWidth = 500;
   
   // state the game over now
   const [gameOver, setGameOver] = useState(false);
@@ -14,9 +17,9 @@ function App() {
   const [score, setScore] = useState(0);
   
   // destructure the time, gameStarted and startTimer from the GameTimer
-  const {time,gameStarted,startTimer, resetGame} = GameTimer(gameTime, gameOver, setGameOver);
+  const {time,gameStarted,startTimer, resetGame, gameOvers} = GameTimer(gameTime, gameOver, setGameOver);
   
-  
+   const {basketX} = MoveBasket(gameOvers, basketWidth);  
 
   // return the App component
   return (
@@ -29,8 +32,7 @@ function App() {
         {/* display the RestartGame component if the game is over */}
         {gameOver && <RestartGame score={score} setScore={setScore} resetGame={resetGame}/>}
         {/* display the Basket component */}
-        <Basket x={700} width={500} height={100}/>
-        {/* Hardcoded the x , width and height for now (proof of concept works) */}
+        <Basket x={basketX} width={basketWidth} height={100}/>
     </div>
   )
 }
