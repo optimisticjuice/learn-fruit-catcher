@@ -22,6 +22,13 @@ export default function GameTimer(initialTime, gameOver, setGameOver) {
         // clean up the timer when the component is unmounted
         return () => clearInterval(timerId);
     }, [time, gameStarted, gameOver]);
+    
+    // reset the timer
+    const resetGame = () => {
+        setTimer(initialTime);
+        setGameStarted(true);
+        setGameOver(false);
+    }
     // start the timer
     const startTimer = () => {
         setGameStarted(true);
@@ -30,5 +37,6 @@ export default function GameTimer(initialTime, gameOver, setGameOver) {
       startTimer,
       time,
       gameStarted,
+      resetGame
     }
 }

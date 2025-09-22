@@ -14,7 +14,7 @@ function App() {
   const [score, setScore] = useState(0);
   
   // destructure the time, gameStarted and startTimer from the GameTimer
-  const {time,gameStarted,startTimer} = GameTimer(gameTime, gameOver, setGameOver);
+  const {time,gameStarted,startTimer, resetGame} = GameTimer(gameTime, gameOver, setGameOver);
   
   // return the App component
   return (
@@ -25,7 +25,7 @@ function App() {
         {/* display the StartGame component if the game is not started */}
         {!gameStarted && <StartGame startTimer={startTimer} />}
         {/* display the RestartGame component if the game is over */}
-        {gameOver && <RestartGame score={score} setScore={setScore} setGameOver={setGameOver}/>}
+        {gameOver && <RestartGame score={score} setScore={setScore} resetGame={resetGame}/>}
         {/* display the Basket component */}
         <Basket x={700} width={500} height={100}/>
         {/* Hardcoded the x , width and height for now (proof of concept works) */}
