@@ -27,7 +27,7 @@ function App() {
   
    const {basketX} = MoveBasket(gameOvers, basketWidth);  
 
-   const { fruits} = useFruitSpawning({  
+   const { fruits, resetFruits} = useFruitSpawning({  
     gameStarted,   
     gameOver,   
     gameWidth: width,
@@ -50,7 +50,7 @@ function App() {
         {/* display the StartGame component if the game is not started */}
         {!gameStarted && <StartGame startTimer={startTimer} />}
         {/* display the RestartGame component if the game is over */}
-        {gameOver && <RestartGame score={score} setScore={setScore} resetGame={resetGame}/>}
+        {gameOver && <RestartGame score={score} setScore={setScore} resetGame={resetGame} resetFruits={resetFruits}/>}
         
         {/* display the fruits */}
         {fruits.map(({id, x, y, image}) => (
