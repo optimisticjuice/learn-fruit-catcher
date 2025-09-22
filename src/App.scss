@@ -9,3 +9,16 @@
     border-radius: 0.5rem;
     font-size: 2rem;
   }
+  /* styled the score to be absolute and at the top left */
+  .score{
+    position: absolute;
+    top: 7rem;
+    left: 2rem;
+    color: black;
+    background-color: rgba(195, 148, 197, 0.5);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    
+  }
+  

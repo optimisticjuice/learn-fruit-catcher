@@ -5,11 +5,17 @@ import Basket from "./Basket.jsx";
 import { useState } from "react";
 import RestartGame from "./RestartGame.jsx";
 import MoveBasket from "./MoveBasket.jsx";
+import useFruitSpawning from './FruitSpawning.jsx';
+import useWindowDimensions from './Dimensions.jsx';
+import { fruitImages } from './GameUtils.js';
+import Fruit from "./Fruit.jsx";
 
 function App() {
   // Basket Width:
    const basketWidth = 500;
-  
+   const basketHeight = 100;
+  const {width, height} = useWindowDimensions();   
+
   // state the game over now
   const [gameOver, setGameOver] = useState(false);
   
@@ -21,18 +27,38 @@ function App() {
   
    const {basketX} = MoveBasket(gameOvers, basketWidth);  
 
-  // return the App component
+   const { fruits} = useFruitSpawning({  
+    gameStarted,   
+    gameOver,   
+    gameWidth: width,
+    gameHeight: height,
+    basketX,
+    basketWidth,
+    basketHeight,
+    fruitImages,
+    setScore
+  });
+ 
+ 
+   // return the App component
   return (
     // return the App component
     <div className='container'>
         {/* display the time */}
         <span className="time">Time: {time}</span>
+        <span className="score">Score: {score}</span>
         {/* display the StartGame component if the game is not started */}
         {!gameStarted && <StartGame startTimer={startTimer} />}
         {/* display the RestartGame component if the game is over */}
         {gameOver && <RestartGame score={score} setScore={setScore} resetGame={resetGame}/>}
+        
+        {/* display the fruits */}
+        {fruits.map(({id, x, y, image}) => (
+          <Fruit key={id} x={x} y={y} image={image} />
+        ))}
+        
         {/* display the Basket component */}
-        <Basket x={basketX} width={basketWidth} height={100}/>
+        <Basket x={basketX} width={basketWidth} height={basketHeight}/>
     </div>
   )
 }

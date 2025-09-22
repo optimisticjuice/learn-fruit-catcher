@@ -1,5 +1,5 @@
 import './StartGame.scss';
-export const gameTime = 5;
+export const gameTime = 83;
 // export the StartGame component
 export default function StartGame({startTimer}) {
     return (
