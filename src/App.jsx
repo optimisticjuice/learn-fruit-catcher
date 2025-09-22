@@ -16,6 +16,8 @@ function App() {
   // destructure the time, gameStarted and startTimer from the GameTimer
   const {time,gameStarted,startTimer, resetGame} = GameTimer(gameTime, gameOver, setGameOver);
   
+  
+
   // return the App component
   return (
     // return the App component

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import MoveBasket from "./MoveBasket.jsx";
 
 export default function GameTimer(initialTime, gameOver, setGameOver) {
     // initialTime is the time in seconds
@@ -33,6 +34,8 @@ export default function GameTimer(initialTime, gameOver, setGameOver) {
     const startTimer = () => {
         setGameStarted(true);
     }
+    // move the basket
+    MoveBasket(gameOver);
     return {
       startTimer,
       time,
