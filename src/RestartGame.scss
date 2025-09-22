@@ -1,0 +1,21 @@
+.restart-game{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30rem;
+    height: 10rem;
+    background-color: rgba(0, 0, 0, 0.527);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.restart-button{
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.527);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
