@@ -1,10 +1,12 @@
 import {useEffect, useState, useRef} from "react";
 import {FRUIT_SIZE, getRandomX} from "./GameUtils";
+import {border} from "./App";
+
 export default function useFruitSpawning({ gameStarted, gameOver, gameWidth, gameHeight, basketX, basketWidth, basketHeight,fruitImages,setScore}) {  
     const [fruits, setFruits] = useState([]);  
     const fruitIdRef = useRef(0);  
     const fruitSpawnIndex = useRef(0);  
-    const properBasketHeight = basketHeight - FRUIT_SIZE;
+    const properBasketHeight = basketHeight - FRUIT_SIZE + border;
     const handleFruitCaught = () => {
         setScore((prevScore) => prevScore + 0.5);
       };

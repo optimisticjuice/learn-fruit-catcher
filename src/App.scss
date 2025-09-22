@@ -2,11 +2,24 @@
     position: relative;       /* so absolutely positioned children (basket, fruits) sit inside */
     min-width: 100vw;
     min-height: 100vh;        /* full viewport height */
+    box-sizing: border-box;
     /* Background image */
     background-image: url("./assets/background-image.png"); 
-    background-size: cover; /* change to contain to make the image fit inside the container */
+    background-size: auto; 
     background-position: center;
     background-repeat: no-repeat;
+    border: (var(--border-width)) solid transparent;
+}
+/* flash border animation (0.5s) */
+@keyframes flashGreen {
+    0% { border-color: transparent; box-shadow: none; }
+    10% { border-color: #18a118; box-shadow: 0 0 8px rgba(24,161,24,0.6); }
+    50% { border-color: #18a118; box-shadow: 0 0 12px rgba(24,161,24,0.8); }
+    100% { border-color: transparent; box-shadow: none; }
+}
+
+.flash-border {
+    animation: flashGreen 0.5s ease;
 }
 /* styled the time to be absolute and at the top left */
 .time{
