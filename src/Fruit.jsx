@@ -1,5 +1,5 @@
-import {FRUIT_SIZE, fruitImages} from "./GameUtils";
-export const image = fruitImages;
+import {FRUIT_SIZE} from "./GameUtils";
+
 const Fruit = ({ x, y, image }) => {
   const style = {
     position: "absolute",
