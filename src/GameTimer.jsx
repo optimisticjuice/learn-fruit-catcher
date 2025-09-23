@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 
-export default function GameTimer(initialTime, gameOver, setGameOver) {
+export default function GameTimer(initialTime) {
+    const [gameOver, setGameOver] = useState(false);
     // initialTime is the time in seconds
     const [time, setTimer] = useState(initialTime);
     // gameStarted is used to control the timer
     const [gameStarted, setGameStarted] = useState(false);
-    const gameOvers = gameOver;
     useEffect(() => {
         // if the game is not started, do nothing & gameOver is true, do nothing
-        if (gameOvers || !gameStarted) return;
+        if (gameOver || !gameStarted) return;
         // if the time is 0, do nothing
         if (time === 0){
             // when the time is 0, set the game over to true that will trigger the restart game modal
@@ -21,7 +21,7 @@ export default function GameTimer(initialTime, gameOver, setGameOver) {
         }, 1000);
         // clean up the timer when the component is unmounted
         return () => clearInterval(timerId);
-    }, [time, gameStarted, gameOvers]);
+    }, [time, gameStarted, gameOver]);
     
     // reset the timer
     const resetGame = () => {
@@ -40,6 +40,6 @@ export default function GameTimer(initialTime, gameOver, setGameOver) {
       time,
       gameStarted,
       resetGame,
-      gameOvers
+      gameOver
     }
 }

@@ -16,12 +16,9 @@ export const border = 15;
 function App() {
   const volumeLevel = 5;
   // Basket Width:
-   const basketWidth = 500;
+   const basketWidth = 350;
    const basketHeight = 100;
-  const {width, height} = useWindowDimensions();   
-
-  // state the game over now
-  const [gameOver, setGameOver] = useState(false);
+  const {width, height} = useWindowDimensions();
   
   // state the score now
   const [score, setScore] = useState(0);
@@ -36,12 +33,12 @@ function App() {
     setFlashBorder(true);
     const t = setTimeout(() => setFlashBorder(false), 500);
     return () => clearTimeout(t);
-  }, [score]);
+  },[score]);
 
   // destructure the time, gameStarted and startTimer from the GameTimer
-  const {time,gameStarted,startTimer, resetGame, gameOvers} = GameTimer(gameTime, gameOver, setGameOver);
+  const {time,gameStarted,startTimer, resetGame, gameOver} = GameTimer(gameTime);
   
-   const {basketX} = MoveBasket(gameOvers, basketWidth);  
+   const {basketX} = MoveBasket(gameOver, basketWidth);  
 
    const { fruits, resetFruits} = useFruitSpawning({  
     gameStarted,   
