@@ -60,6 +60,7 @@ function App() {
    // return the App component
   return (
     // return the App component
+    
     <div style={{'--border-width': `${border}px`}} className={`container ${flashBorder ? 'flash-border' : ''}`}>
       <audio ref={audioRef} src={backgroundMusic} />
         {/* display the time */}
@@ -82,3 +83,5 @@ function App() {
 }
 
 export default App
+
+// Create as many branches as possible to make the modding as fun as possible!
